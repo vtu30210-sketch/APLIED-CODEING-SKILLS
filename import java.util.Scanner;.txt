@@ -1,0 +1,4 @@
+import java.util.Scanner;
+public class Main{
+   static class TaxAssessor {
+      public static double calculatepropertyTax(double propertyValue, String location
