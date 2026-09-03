@@ -1,0 +1,29 @@
+class Solution {
+    public int leastInterval(char[] tasks, int n) {
+
+        int[] count = new int[26];
+
+        for (char task : tasks) {
+            count[task - 'A']++;
+        }
+
+        int max = 0;
+
+        for (int c : count) {
+            max = Math.max(max, c);
+        }
+
+        // Number of blocks created by the most frequent task
+        int result = (max - 1) * (n + 1);
+
+        // Add tasks having the maximum frequency
+        for (int c : count) {
+            if (c == max) {
+                result++;
+            }
+        }
+
+        // We don't need idle time if tasks themselves fill everything
+        return Math.max(result, tasks.length);
+    }
+}
